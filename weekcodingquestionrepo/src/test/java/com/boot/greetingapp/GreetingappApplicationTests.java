@@ -1,13 +1,28 @@
 package com.boot.greetingapp;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+@SpringBootApplication
+public class GreetingappApplication {
 
-@SpringBootTest
-class GreetingappApplicationTests {
+	public static void main(String[] args) {
+		SpringApplication.run(GreetingappApplication.class, args);
+	}
 
-	@Test
-	void contextLoads() {
+	@GetMapping("/welcome")
+	public String welcome() {
+		return "welcome to spring boot greeting app";
+	}
+	@GetMapping("/greeting")
+	public String greeting() {
+		return "greetings from spring boot greeting app";
+	}
+	@GetMapping("/hello")
+	public String hello() {
+		return "hello from spring boot greeting app";
 	}
 
 }
